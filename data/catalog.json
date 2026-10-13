@@ -1,9 +1,9 @@
 {
-  "title": "Claude UI・UXデザインガイド",
+  "title": "UI・UX エージェントスキルガイド",
   "verified_on": "2026-10-13",
   "source_post": "https://x.com/RoundtableSpace/status/2109958757891346459",
   "motion_guide": "https://studio-yebisu.github.io/awesome-claude-motion-design-ja/",
-  "scope": "Web UIの視覚設計、操作設計、実装レビューを中心にした日本語ガイド。スキルをインストール・実行した検証ではない。",
+  "scope": "Web UIの視覚設計、操作設計、実装レビューを中心にした日本語ガイド。12のスキル・スキル集と補助ライブラリ1件。4件の指針を作例に適用。導入コマンドの実行と外部サービス接続は未実施。",
   "entries": [
     {
       "id": "frontend-design",
@@ -39,7 +39,8 @@
         "タイポグラフィ",
         "配色",
         "visual design"
-      ]
+      ],
+      "application": "studio-desk"
     },
     {
       "id": "impeccable",
@@ -157,7 +158,8 @@
         "キーボード",
         "audit",
         "レビュー"
-      ]
+      ],
+      "application": "studio-desk"
     },
     {
       "id": "emil-design-eng",
@@ -194,7 +196,8 @@
         "easing",
         "reduced motion",
         "UIアニメーション"
-      ]
+      ],
+      "application": "studio-desk"
     },
     {
       "id": "motion-dev-animations",
@@ -231,6 +234,319 @@
         "Next.js",
         "UIアニメーション",
         "元投稿 #10"
+      ]
+    },
+    {
+      "id": "taste-skill",
+      "name": "Taste Skill v2",
+      "repo": "Leonxlnx/taste-skill",
+      "repository_url": "https://github.com/Leonxlnx/taste-skill",
+      "revision": "d237dd399d57524945c0c81327da5da19f7a468d",
+      "verified_on": "2026-10-13",
+      "commit_date": "2026-10-11T21:56:48Z",
+      "source_url": "https://github.com/Leonxlnx/taste-skill/blob/d237dd399d57524945c0c81327da5da19f7a468d/skills/taste-skill/SKILL.md",
+      "readme_url": "https://github.com/Leonxlnx/taste-skill/blob/d237dd399d57524945c0c81327da5da19f7a468d/README.md",
+      "license_url": "https://github.com/Leonxlnx/taste-skill/blob/d237dd399d57524945c0c81327da5da19f7a468d/LICENSE",
+      "verification": "primary_source_reviewed_not_runtime_tested",
+      "category": "direction",
+      "category_label": "見た目・設計",
+      "kind": "skill",
+      "kind_label": "スキル（実験版）",
+      "origin": "supplement",
+      "source_post_number": null,
+      "headline": "LPの個性と情報密度を、狙って調整する。",
+      "summary": "デザインの変化量、動きの強さ、情報密度を調整し、ブランドの文脈から視覚方針を組み立てるスキル。新しいLPやポートフォリオ、既存サイトの再設計に使う。",
+      "best_for": "LP、ブランドサイト、ポートフォリオの視覚設計と再設計。",
+      "requirements": "SKILL.mdを扱うエージェントと実装先。導入コマンドにはNode.js/npmが必要。既存のブランド、内容、技術構成を依頼に添える。",
+      "limits": "確認時点の既定版はv2 experimental。ダッシュボード、データ表、多段階の業務UIは対象外と明記される。強い造形上の好みを含み、一般的なUXの正解を保証しない。",
+      "license": "MIT",
+      "license_note": "固定コミットのLICENSEを確認。画像素材や外部ライブラリの条件は別。",
+      "install": "npx skills add https://github.com/Leonxlnx/taste-skill --skill \"design-taste-frontend\"",
+      "install_context": "公式READMEの単体導入コマンド。フォルダ名ではなくfrontmatterの導入名を指定する。v1と同じ導入名でv2へ更新されるため、既存利用者は版の違いを確認する。",
+      "task_brief": "design-taste-frontendで【LP／ポートフォリオ】を設計してください。対象読者は【誰】、伝える内容は【内容】、最優先の行動は【行動】です。既存のブランド規約を読み、変化量・動き・情報密度の方針を示して実装してください。実在する文言と素材を使い、狭い画面と動きを減らす設定も確認してください。",
+      "tags": [
+        "Claude Code",
+        "Codex",
+        "LP",
+        "ポートフォリオ",
+        "再設計",
+        "experimental"
+      ]
+    },
+    {
+      "id": "ibelick-ui-skills",
+      "name": "UI Skills",
+      "repo": "ibelick/ui-skills",
+      "repository_url": "https://github.com/ibelick/ui-skills",
+      "revision": "9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5",
+      "verified_on": "2026-10-13",
+      "commit_date": "2026-10-13T09:55:18Z",
+      "source_url": "https://github.com/ibelick/ui-skills/blob/9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5/skills/fixing-accessibility/SKILL.md",
+      "readme_url": "https://github.com/ibelick/ui-skills/blob/9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5/README.md",
+      "license_url": "https://github.com/ibelick/ui-skills/blob/9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5/LICENSE",
+      "verification": "primary_source_reviewed_not_runtime_tested",
+      "category": "review",
+      "category_label": "レビュー・改善",
+      "kind": "skill",
+      "kind_label": "スキル集",
+      "origin": "supplement",
+      "source_post_number": null,
+      "headline": "フォームやダイアログの、操作上の穴を直す。",
+      "summary": "UIの基準、アクセシビリティ修正、コンポーネント比較などを目的別に扱うスキル集。fixing-accessibilityはラベル、キーボード、フォーカス、入力エラーなどを対象に、小さく修正する方針を持つ。",
+      "best_for": "既存UIのアクセシビリティ修正と、コンポーネントの状態・バリエーション確認。",
+      "requirements": "対象UIのコードと、それを読めるエージェント。baseline-uiにはTailwindやMotion for Reactを前提とした規則もあるため、使うスキルを選ぶ。",
+      "limits": "スキル集のうちbaseline-ui、fixing-accessibility、component-canvasの本文を確認。全スキルの実行検証ではない。自動レビューだけで支援技術の動作やWCAG適合を保証しない。",
+      "license": "MIT",
+      "license_note": "固定コミットのLICENSEを確認。",
+      "install": "npx ui-skills get baseline-ui",
+      "install_context": "公式READMEの取得コマンド。CLIの実装上、Markdownを標準出力へ表示するもので、自動インストールではない。選んだskills/<名前>/の内容をエージェントの対応するスキル配置先へ保存して使う。",
+      "task_brief": "UI Skillsのfixing-accessibilityを使って【対象画面】を確認してください。入力の名前とエラーの関連付け、Tab移動、見えるフォーカス、ダイアログを閉じた後の戻り先を点検し、既存構造を保って必要な箇所を修正してください。コードの確認とブラウザで実際に試した結果を分けて報告してください。",
+      "extra_sources": [
+        {
+          "label": "baseline-ui",
+          "url": "https://github.com/ibelick/ui-skills/blob/9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5/skills/baseline-ui/SKILL.md"
+        },
+        {
+          "label": "component-canvas",
+          "url": "https://github.com/ibelick/ui-skills/blob/9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5/skills/component-canvas/SKILL.md"
+        }
+      ],
+      "tags": [
+        "アクセシビリティ",
+        "フォーム",
+        "キーボード",
+        "フォーカス",
+        "レビュー",
+        "コンポーネント"
+      ],
+      "application": "studio-desk"
+    },
+    {
+      "id": "bencium-controlled-ux-designer",
+      "name": "Bencium Controlled UX Designer",
+      "repo": "bencium/bencium-marketplace",
+      "repository_url": "https://github.com/bencium/bencium-marketplace",
+      "revision": "5de46a39b4640fa419560cd0b67e4c4b50dac802",
+      "verified_on": "2026-10-13",
+      "commit_date": "2026-10-04T09:16:45Z",
+      "source_url": "https://github.com/bencium/bencium-marketplace/blob/5de46a39b4640fa419560cd0b67e4c4b50dac802/bencium-controlled-ux-designer/skills/bencium-controlled-ux-designer/SKILL.md",
+      "readme_url": "https://github.com/bencium/bencium-marketplace/blob/5de46a39b4640fa419560cd0b67e4c4b50dac802/README.md",
+      "license_url": "https://github.com/bencium/bencium-marketplace/blob/5de46a39b4640fa419560cd0b67e4c4b50dac802/LICENSE",
+      "verification": "primary_source_reviewed_not_runtime_tested",
+      "category": "direction",
+      "category_label": "見た目・設計",
+      "kind": "skill",
+      "kind_label": "スキル",
+      "origin": "supplement",
+      "source_post_number": null,
+      "headline": "設計の選択肢を確認しながら、業務UIを組み立てる。",
+      "summary": "配色、書体、レイアウトを人と確認しながら進めるUX設計スキル。余白や文字の尺度に加え、入力のフィードバック、エラーからの回復、段階的な情報開示を扱う。",
+      "best_for": "方針を相談しながら進める業務画面、フォーム、既存UIの整備。",
+      "requirements": "Claude Codeと対象プロジェクト。本文は@/components/uiにある導入済みshadcn/ui v4とindex.cssのテーマを前提とする。",
+      "limits": "確認を挟む設計スタイルで、承認済みの変更まで毎回止める必要はない。影を使わないなど作者の造形規則も含む。アクセシビリティや業務適合の実証は別途必要。",
+      "license": "MIT",
+      "license_note": "固定コミットのLICENSEを確認。旧bencium-claude-code-design-skill URLは現在のmarketplaceへ転送される。",
+      "install": "/plugin marketplace add bencium/bencium-marketplace\n/plugin install bencium-controlled-ux-designer@bencium-marketplace",
+      "install_context": "Claude Code内で入力する、公式READMEの個別プラグイン導入手順。shadcn/ui自体を導入するコマンドではない。",
+      "task_brief": "bencium-controlled-ux-designerで【業務画面】を設計してください。利用者の仕事は【目的】です。確定済みの色・書体・コンポーネント規約はそのまま使い、未決定の重要な選択だけ比較してください。入力中、エラー、保存中、完了の状態と、失敗から回復する方法を含めて実装してください。",
+      "tags": [
+        "Claude Code",
+        "shadcn/ui",
+        "業務UI",
+        "フォーム",
+        "デザインシステム",
+        "エラー回復"
+      ]
+    },
+    {
+      "id": "allonsy-design-system",
+      "name": "Allonsy Design System",
+      "repo": "allonsy-studio/agent-skills",
+      "repository_url": "https://github.com/allonsy-studio/agent-skills",
+      "revision": "4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c",
+      "verified_on": "2026-10-13",
+      "commit_date": "2026-10-13T14:11:36Z",
+      "source_url": "https://github.com/allonsy-studio/agent-skills/blob/4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c/skills/design-system/SKILL.md",
+      "readme_url": "https://github.com/allonsy-studio/agent-skills/blob/4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c/README.md",
+      "license_url": "https://github.com/allonsy-studio/agent-skills/blob/4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c/LICENSE",
+      "verification": "primary_source_reviewed_not_runtime_tested",
+      "category": "design-system",
+      "category_label": "デザインシステム",
+      "kind": "skill",
+      "kind_label": "スキル＋設計リファレンス",
+      "origin": "supplement",
+      "source_post_number": null,
+      "headline": "部品の名前、API、操作規則をそろえる。",
+      "summary": "コンポーネントの分類と命名、プロパティやイベント、デザイントークン、ARIA、国際化を整理するスキル。画面単体から再利用できる部品と規約を作りたいときに。",
+      "best_for": "コンポーネントライブラリの設計・レビューとデザインシステムの文書化。",
+      "requirements": "SKILL.mdと同梱referencesを読めるエージェント。既存コンポーネント、命名規約、トークン定義を渡す。HTMLやWeb Componentsの例を実装先の構成に合わせて読む。",
+      "limits": "設計の指針と参照資料が中心。付属CLIのインストールやテストは実行していない。既存のフレームワーク規約に合わせた調整と、操作を含むブラウザ検証が必要。",
+      "license": "MPL-2.0",
+      "license_note": "固定コミットのLICENSEを確認。改変・再配布時はMPL-2.0の条件を確認する。",
+      "install": "skills/design-system/ → プロジェクトの .claude/skills/design-system/",
+      "install_context": "確認した固定版からフォルダを手動配置する例。SKILL.mdだけでなくreferencesも含める。対応する他エージェントではそのスキル配置先を使う。既存フォルダの上書きを避けて差分を確認する。",
+      "task_brief": "design-systemを使って【既存コンポーネント群】をレビューしてください。名前、責務、プロパティ、イベント、色や余白のトークン、キーボード操作、国際化の規則を整理してください。現在の実装に合わせた小さな改善案と、代表コンポーネント1つの仕様・実装例を作ってください。",
+      "extra_sources": [
+        {
+          "label": "コンポーネントAPI設計",
+          "url": "https://github.com/allonsy-studio/agent-skills/blob/4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c/skills/design-system/references/api-design.md"
+        },
+        {
+          "label": "アクセシビリティパターン",
+          "url": "https://github.com/allonsy-studio/agent-skills/blob/4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c/skills/design-system/references/accessibility-patterns.md"
+        }
+      ],
+      "tags": [
+        "デザインシステム",
+        "コンポーネント",
+        "ARIA",
+        "design tokens",
+        "国際化",
+        "命名"
+      ]
+    },
+    {
+      "id": "shadcn-skill",
+      "name": "shadcn/ui Skill",
+      "repo": "shadcn-ui/ui",
+      "repository_url": "https://github.com/shadcn-ui/ui",
+      "revision": "30a58d4498f270af1c1e981a7d78a15cf5740841",
+      "verified_on": "2026-10-13",
+      "source_url": "https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/skills/shadcn/SKILL.md",
+      "readme_url": "https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/README.md",
+      "license_url": "https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/LICENSE.md",
+      "verification": "primary_source_reviewed_not_runtime_tested",
+      "category": "implementation",
+      "category_label": "コンポーネント実装",
+      "kind": "skill",
+      "origin": "supplement",
+      "source_post_number": null,
+      "inspected_files": [
+        {
+          "repo": "shadcn-ui/ui",
+          "revision": "30a58d4498f270af1c1e981a7d78a15cf5740841",
+          "path": "README.md",
+          "url": "https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/README.md",
+          "sha256": "bb0869848a2063e405b141aa6fae8b10f132ac45036f613459e2d778b7609619"
+        },
+        {
+          "repo": "shadcn-ui/ui",
+          "revision": "30a58d4498f270af1c1e981a7d78a15cf5740841",
+          "path": "LICENSE.md",
+          "url": "https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/LICENSE.md",
+          "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+        },
+        {
+          "repo": "shadcn-ui/ui",
+          "revision": "30a58d4498f270af1c1e981a7d78a15cf5740841",
+          "path": "skills/shadcn/SKILL.md",
+          "url": "https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/skills/shadcn/SKILL.md",
+          "sha256": "0185f715bc985deca4223be426f898aa17f7d1a297a9857dfa79055e473bc34d"
+        }
+      ],
+      "kind_label": "公式スキル",
+      "headline": "既存の部品を、正しい組み合わせで画面にする。",
+      "summary": "プロジェクト設定、導入済みの部品、基盤ライブラリを調べ、shadcn/uiのフォームやダイアログを組み立てる公式スキル。部品名やAPIを推測せず、CLIと原典を参照する。",
+      "best_for": "shadcn/uiを使う管理画面、設定、フォーム、デザインシステムの実装。",
+      "requirements": "Node.jsとパッケージマネージャー、shadcn/uiのプロジェクト。components.jsonなどの設定を読む。CLIを使った部品の取得にはネットワーク接続が必要。",
+      "limits": "shadcn/ui向けの実装規則であり、任意のHTMLや他の部品ライブラリへそのまま適用するものではない。スキルを追加しても部品一式や完成画面が自動で入るわけではない。",
+      "license": "MIT",
+      "license_note": "リポジトリのLICENSE.mdを確認。追加のレジストリから取得する素材・コンポーネントは各条件を確認する。",
+      "install": "pnpm dlx skills add shadcn/ui",
+      "install_context": "shadcn/ui公式ドキュメント掲載のスキル導入例。部品を追加するshadcn CLIのコマンドとは別。導入時の最新版を取得する。",
+      "install_source_url": "https://ui.shadcn.com/docs/skills",
+      "extra_sources": [
+        {
+          "label": "公式スキル導入ガイド ↗",
+          "url": "https://ui.shadcn.com/docs/skills"
+        }
+      ],
+      "task_brief": "shadcnスキルを使い、このプロジェクトの設定と導入済みコンポーネントを確認してください。【設定画面】を既存の部品で組み立て、必須入力、エラー表示、キーボード操作を含めて実装してください。部品のAPIは現行ドキュメントで確認してください。",
+      "tags": [
+        "shadcn/ui",
+        "フォーム",
+        "React",
+        "コンポーネント",
+        "design system"
+      ]
+    },
+    {
+      "id": "stitch-design-skills",
+      "name": "Stitch Design Skills",
+      "repo": "google-labs-code/stitch-skills",
+      "repository_url": "https://github.com/google-labs-code/stitch-skills",
+      "revision": "0337446dadde6f8c94210444e2aa9d546126480f",
+      "verified_on": "2026-10-13",
+      "source_url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/generate-design/SKILL.md",
+      "readme_url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/README.md",
+      "license_url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/LICENSE",
+      "verification": "primary_source_reviewed_not_runtime_tested",
+      "category": "workflow",
+      "category_label": "デザイン連携",
+      "kind": "skill",
+      "origin": "supplement",
+      "source_post_number": null,
+      "inspected_files": [
+        {
+          "repo": "google-labs-code/stitch-skills",
+          "revision": "0337446dadde6f8c94210444e2aa9d546126480f",
+          "path": "README.md",
+          "url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/README.md",
+          "sha256": "350b366bf9880cacf9a37447c89248a158d0d96ea6054beac15842877c164a12"
+        },
+        {
+          "repo": "google-labs-code/stitch-skills",
+          "revision": "0337446dadde6f8c94210444e2aa9d546126480f",
+          "path": "LICENSE",
+          "url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/LICENSE",
+          "sha256": "b4133a55232c0996713349891dc55469d46a16ec027c033c9e4108b2149abb42"
+        },
+        {
+          "repo": "google-labs-code/stitch-skills",
+          "revision": "0337446dadde6f8c94210444e2aa9d546126480f",
+          "path": "plugins/stitch-utilities/skills/design-md/SKILL.md",
+          "url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-utilities/skills/design-md/SKILL.md",
+          "sha256": "eb15f44646528f3a087ce023329ae699c1b6e803662af68338e1eb1c0406b59b"
+        },
+        {
+          "repo": "google-labs-code/stitch-skills",
+          "revision": "0337446dadde6f8c94210444e2aa9d546126480f",
+          "path": "plugins/stitch-utilities/skills/enhance-prompt/SKILL.md",
+          "url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-utilities/skills/enhance-prompt/SKILL.md",
+          "sha256": "ccb200c798072438b642b1fa6a5c515563159e2fab3d56e813d76d8afa9a7ce6"
+        },
+        {
+          "repo": "google-labs-code/stitch-skills",
+          "revision": "0337446dadde6f8c94210444e2aa9d546126480f",
+          "path": "plugins/stitch-design/skills/generate-design/SKILL.md",
+          "url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/generate-design/SKILL.md",
+          "sha256": "d03d2de3a0cefbde2ca7b8cdc2c96e8164a8b9400fe3a9b97a3aa6ce37ee638d"
+        }
+      ],
+      "kind_label": "スキル集＋MCP連携",
+      "headline": "画面案とデザイン規約を、次の画面へつなぐ。",
+      "summary": "Google Labs Codeが公開するStitch向けスキル集。画面の生成・修正、DESIGN.mdへの設計規約の整理、実装への引き渡しを用途別に扱う。ここでは画面生成、design-md、enhance-promptの本文を確認した。",
+      "best_for": "Stitchの画面案、既存画面からのデザイン規約抽出、複数画面の方向性の統一。",
+      "requirements": "Stitchを利用できるアカウントと、エージェント側のStitch MCP接続・認証設定。design-mdは既存のStitch画面を参照する。機能間の依存スキルも必要。",
+      "limits": "READMEはGoogleの公式サポート対象製品ではないと明記。MCPを用いた生成・アップロードは外部サービスで行う。各サービスの利用枠・データの送信先は別途確認する。全収録スキルの動作検証はしていない。",
+      "license": "Apache-2.0",
+      "license_note": "スキル集のLICENSEを確認。Stitchサービスの利用条件・利用枠や、入力素材の権利とは別。",
+      "install": "npx skills add google-labs-code/stitch-skills",
+      "install_context": "READMEの選択導入例。必要なスキルを選ぶ。接続設定は別途必要で、スキル同士に依存関係がある。ここでは接続・インストール・外部生成を行っていない。",
+      "install_source_url": "https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/README.md",
+      "extra_sources": [
+        {
+          "label": "Stitch MCPの設定 ↗",
+          "url": "https://stitch.withgoogle.com/docs/mcp/setup/"
+        }
+      ],
+      "task_brief": "Stitchで【画面】を設計するため、利用者、最優先の行動、表示する情報を整理してください。既存のデザインシステムがある場合は継承し、なければ先に規約をまとめてください。生成対象のプロジェクトと送信する素材を明示して進めてください。",
+      "tags": [
+        "Stitch",
+        "DESIGN.md",
+        "デザインシステム",
+        "MCP",
+        "デザイン連携"
       ]
     },
     {

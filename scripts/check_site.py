@@ -14,6 +14,7 @@ class Page(HTMLParser):
         self.ids = []
         self.links = []
         self.resources = []
+        self.libraries = []
         self.h1 = 0
         self.in_catalog = False
         self.catalog = ''
@@ -28,8 +29,10 @@ class Page(HTMLParser):
             self.lang = attrs.get('lang')
         if tag == 'h1':
             self.h1 += 1
-        if tag == 'article':
-            self.resources.append(attrs.get('data-resource'))
+        if 'data-resource' in attrs:
+            self.resources.append(attrs['data-resource'])
+        if 'data-library' in attrs:
+            self.libraries.append(attrs['data-library'])
         for name in ['href', 'src']:
             if name in attrs:
                 self.links.append(attrs[name])
@@ -51,10 +54,13 @@ def main():
     data = json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
     entries = data['entries']
     ids = [x['id'] for x in entries]
-    assert len(entries) == 7 and len(ids) == len(set(ids)), 'Expected 7 distinct resources'
-    assert sum(x['kind'] == 'skill' for x in entries) == 6, 'Kinds must distinguish skills from library'
+    skills = [x for x in entries if x['kind'] == 'skill']
+    libraries = [x for x in entries if x['kind'] == 'library']
+    assert len(entries) == 13 and len(ids) == len(set(ids)), 'Expected 13 distinct catalog entries'
+    assert len(skills) == 12 and len(libraries) == 1, '12 skill entries; 1 separate supporting library'
     assert sorted(x['source_post_number'] for x in entries if x['origin'] == 'source-post') == [9, 10]
-    assert sum(x['origin'] == 'supplement' for x in entries) == 5
+    assert sum(x['origin'] == 'supplement' for x in entries) == 11
+    assert sum(x.get('application') == 'studio-desk' for x in skills) == 4
     for entry in entries:
         for key in ['name', 'repo', 'category', 'kind', 'origin', 'headline', 'summary', 'best_for',
                     'requirements', 'limits', 'install', 'install_context', 'task_brief', 'license', 'license_note']:
@@ -65,13 +71,14 @@ def main():
         for key in ['source_url', 'readme_url', 'license_url']:
             assert f'/blob/{entry["revision"]}/' in entry[key], f'{entry["id"]}: unpinned {key}'
         assert entry['repository_url'] == 'https://github.com/' + entry['repo']
-        assert entry['category'] in ['direction', 'review', 'interaction', 'implementation']
+        assert entry['category'] in ['direction', 'review', 'interaction', 'implementation', 'design-system', 'workflow']
     page = Page()
     page.feed((ROOT / 'index.html').read_text(encoding='utf-8'))
     assert page.lang == 'ja' and page.h1 == 1
     assert len(page.ids) == len(set(page.ids)), 'Duplicate HTML id'
-    assert page.resources == ids, 'Catalog/page resource order mismatch'
-    assert json.loads(page.catalog) == entries, 'Embedded search data is stale'
+    assert page.resources == [x['id'] for x in skills], 'Catalog/page skill order mismatch'
+    assert page.libraries == [x['id'] for x in libraries], 'Supporting library separation mismatch'
+    assert json.loads(page.catalog) == skills, 'Search data must contain skills only'
     assert page.count_live, 'Result count must announce changes'
     for required_id in ['search', 'origin', 'filters', 'empty', 'copy-status', 'catalog', 'main']:
         assert required_id in page.ids, f'Missing UI element {required_id}'
@@ -84,18 +91,21 @@ def main():
             assert (ROOT / unquote(parsed.path)).is_file(), f'Broken local file link: {link}'
         elif parsed.fragment:
             assert unquote(parsed.fragment) in page.ids, f'Broken fragment: {link}'
-    for filename in ['README.md', 'ATTRIBUTION.md']:
+    for filename in ['README.md', 'ATTRIBUTION.md', 'RESEARCH.md']:
         content = (ROOT / filename).read_text(encoding='utf-8')
-        for entry in entries:
-            assert entry['license_url'] in content, f'{filename}: missing evidence link'
+        if filename != 'RESEARCH.md':
+            for entry in entries:
+                assert entry['license_url'] in content, f'{filename}: missing evidence link'
         for link in re.findall(r'\]\(([^)]+)\)', content):
             if not urlsplit(link).scheme:
                 assert (ROOT / link).is_file(), f'{filename}: broken local link {link}'
     css = (ROOT / 'styles.css').read_text(encoding='utf-8')
     assert 'prefers-reduced-motion' in css and ':focus-visible' in css
-    for filename in ['index.html', 'styles.css', 'app.js', 'README.md', 'ATTRIBUTION.md', 'LICENSE', 'data/catalog.json']:
+    filenames = ['index.html', 'styles.css', 'app.js', 'README.md', 'RESEARCH.md', 'ATTRIBUTION.md', 'LICENSE', 'data/catalog.json', 'data/research-2026-10-13.json', 'data/research-official-2026-10-13.json']
+    filenames.extend(str(p.relative_to(ROOT)) for p in (ROOT / 'examples/studio-desk').rglob('*') if p.is_file())
+    for filename in filenames:
         assert (ROOT / filename).read_bytes() == (ROOT / 'dist' / filename).read_bytes(), f'Stale dist file: {filename}'
-    print(f'PASS: {len(entries)} records, pinned evidence, 6 skills/1 library, Japanese page, {len(page.links)} links, IDs, accessibility hooks, generated data, dist consistency')
+    print(f'PASS: {len(entries)} records, pinned evidence, 12 skills/1 supporting library, Japanese page, {len(page.links)} links, IDs, accessibility hooks, example files, dist consistency')
 
 
 if __name__ == '__main__':

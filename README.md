@@ -1,12 +1,20 @@
-# Claude UI・UXデザインガイド
+# UI・UX エージェントスキルガイド
 
-ClaudeなどのエージェントでWeb UIを設計・実装・改善するための、日本語のリソース比較ガイドです。
+Claude・CodexなどのエージェントでWeb UIを設計・実装・改善するための、日本語のスキル比較ガイドです。
 
-原典確認日：**2026-10-13**。6つのスキルと1つのライブラリを収録。スキルのインストール・動作検証は行っていません。
+原典確認日：**2026-10-13**。**12のスキル・スキル集**を収録し、Motionライブラリは補助資料として別枠にしています。
+
+## 実際につくる
+
+[Studio Yebisu Deskを開く](examples/studio-desk/index.html) — 架空の制作プロジェクトを検索・追加・編集・整理する、ブラウザ内保存の試作です。
+
+Frontend Design、Emil Design Engineering、Web Design Guidelines、UI Skillsの4件を読み、設計・実装・点検へ適用しました。導入コマンドの実行や外部サービスへの接続はしていません。
+
+[適用内容と実装](examples/studio-desk/README.md) · [スキル適用の記録](examples/studio-desk/skill-application.json) · [調査範囲と選定理由](RESEARCH.md)
 
 ## モーション版との分担
 
-[元投稿](https://x.com/RoundtableSpace/status/2109958757891346459)の#10 Motion.dev Animations SkillをUI側へ、#9 Motionは共通の実装基盤として掲載。UI設計・レビューの5件は追加調査です。映像制作、タイポグラフィ演出、GSAP・Lottieなどは[モーション版](https://studio-yebisu.github.io/awesome-claude-motion-design-ja/)にまとめています。
+[元投稿](https://x.com/RoundtableSpace/status/2109958757891346459)の#10 Motion.dev Animations SkillをUI側へ、#9 Motionは補助ライブラリとして掲載。残りの11件は追加調査です。映像制作、タイポグラフィ演出、GSAP・Lottieなどは[モーション版](https://studio-yebisu.github.io/awesome-claude-motion-design-ja/)にまとめています。
 
 このガイドの中心は視覚設計・操作設計・実装レビューです。ユーザー調査、情報設計、ユーザーテストなどUXの全工程を網羅するものではありません。
 
@@ -18,13 +26,16 @@ ClaudeなどのエージェントでWeb UIを設計・実装・改善するた�
 | 既存画面を改善する | Impeccable |
 | 操作性をコードで点検する | Web Design Guidelines |
 | UIの動きを設計・実装する | Emil Design Engineering / Motion.dev Animations Skill |
+| アクセシビリティを修正する | UI Skills / fixing-accessibility |
+| ブランドや画面の統一を考える | Taste Skill / Bencium / Allonsy Design System |
+| 既存コンポーネント・生成サービスを使う | shadcn/ui Skill / Stitch Skills |
 | 動きを実行する依存ライブラリ | Motion |
 
 ## カタログ
 
 ### Frontend Design
 
-**スキル / 追加調査**
+**スキル / 追加調査** / [作例に適用](examples/studio-desk/README.md)
 
 対象サービスに合う文字、色、余白、レイアウトを考える、Anthropicのフロントエンド向けスキル。画面を新しくつくるときや、既存UIの印象を変える入口に。
 
@@ -52,7 +63,7 @@ Claude Code内で入力。公式READMEのexample-skillsセット導入手順で�
 
 ### Impeccable
 
-**スキル＋CLI / 追加調査**
+**スキル＋CLI / 追加調査** / 原典資料を確認
 
 見た目の講評、文言、余白、端末対応、エラー状態などを目的別に扱うスキルとツール。既存の画面に対し、どこを直すかを絞って反復したいときに。
 
@@ -79,7 +90,7 @@ npx impeccable install
 
 ### UI UX Pro Max
 
-**スキル＋検索データ / 追加調査**
+**スキル＋検索データ / 追加調査** / 原典資料を確認
 
 業種や画面の目的から、配色、書体、スタイル、UXの注意点を検索するスキル。新しいプロダクトの設計方針を整理し、実装スタックに合わせて具体化する。
 
@@ -106,7 +117,7 @@ npx ui-ux-pro-max-cli init --ai claude
 
 ### Web Design Guidelines
 
-**レビュースキル / 追加調査**
+**レビュースキル / 追加調査** / [作例に適用](examples/studio-desk/README.md)
 
 VercelのWeb Interface Guidelinesを取得し、指定したUIコードを点検するスキル。フォーカス、フォーム、キーボード操作、動きを減らす設定などの実装レビューに。
 
@@ -133,7 +144,7 @@ npx skills add vercel-labs/agent-skills
 
 ### Emil Design Engineering
 
-**スキル / 追加調査**
+**スキル / 追加調査** / [作例に適用](examples/studio-desk/README.md)
 
 Emil KowalskiのUI設計とアニメーションの判断をまとめたスキル。動かす必要性、反応速度、途中で操作された場合の挙動など、コンポーネントの細部を扱う。
 
@@ -160,7 +171,7 @@ npx skills@latest add emilkowalski/skills
 
 ### Motion.dev Animations Skill
 
-**スキル / 元投稿 #10**
+**スキル / 元投稿 #10** / 原典資料を確認
 
 Motionのスクロール、ホバー、ドラッグ、レイアウト遷移を実装するためのClaude Codeスキル。元投稿の15項目から、操作画面向けの1件をこのガイドへ分離。
 
@@ -185,9 +196,172 @@ Git管理している対象プロジェクトで実行。公式READMEのプロ�
 
 確認日 2026-10-13 / commit `3feedfb4dba8adae40fc9a5f9a23e3dda2121205`
 
+### Taste Skill v2
+
+**スキル（実験版） / 追加調査** / 原典資料を確認
+
+デザインの変化量、動きの強さ、情報密度を調整し、ブランドの文脈から視覚方針を組み立てるスキル。新しいLPやポートフォリオ、既存サイトの再設計に使う。
+
+- 向いていること：LP、ブランドサイト、ポートフォリオの視覚設計と再設計。
+- 必要なもの：SKILL.mdを扱うエージェントと実装先。導入コマンドにはNode.js/npmが必要。既存のブランド、内容、技術構成を依頼に添える。
+- 範囲と限界：確認時点の既定版はv2 experimental。ダッシュボード、データ表、多段階の業務UIは対象外と明記される。強い造形上の好みを含み、一般的なUXの正解を保証しない。
+- ライセンス：MIT。固定コミットのLICENSEを確認。画像素材や外部ライブラリの条件は別。
+
+導入例（原典の記載を紹介。ここでは実行していません）：
+
+```text
+npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"
+```
+
+公式READMEの単体導入コマンド。フォルダ名ではなくfrontmatterの導入名を指定する。v1と同じ導入名でv2へ更新されるため、既存利用者は版の違いを確認する。
+
+依頼文のたたき台（本ガイドの独自文）：
+
+> design-taste-frontendで【LP／ポートフォリオ】を設計してください。対象読者は【誰】、伝える内容は【内容】、最優先の行動は【行動】です。既存のブランド規約を読み、変化量・動き・情報密度の方針を示して実装してください。実在する文言と素材を使い、狭い画面と動きを減らす設定も確認してください。
+
+[リポジトリ](https://github.com/Leonxlnx/taste-skill) · [確認した原典](https://github.com/Leonxlnx/taste-skill/blob/d237dd399d57524945c0c81327da5da19f7a468d/skills/taste-skill/SKILL.md) · [導入手順](https://github.com/Leonxlnx/taste-skill/blob/d237dd399d57524945c0c81327da5da19f7a468d/README.md) · [ライセンス根拠](https://github.com/Leonxlnx/taste-skill/blob/d237dd399d57524945c0c81327da5da19f7a468d/LICENSE)
+
+確認日 2026-10-13 / commit `d237dd399d57524945c0c81327da5da19f7a468d`
+
+### UI Skills
+
+**スキル集 / 追加調査** / [作例に適用](examples/studio-desk/README.md)
+
+UIの基準、アクセシビリティ修正、コンポーネント比較などを目的別に扱うスキル集。fixing-accessibilityはラベル、キーボード、フォーカス、入力エラーなどを対象に、小さく修正する方針を持つ。
+
+- 向いていること：既存UIのアクセシビリティ修正と、コンポーネントの状態・バリエーション確認。
+- 必要なもの：対象UIのコードと、それを読めるエージェント。baseline-uiにはTailwindやMotion for Reactを前提とした規則もあるため、使うスキルを選ぶ。
+- 範囲と限界：スキル集のうちbaseline-ui、fixing-accessibility、component-canvasの本文を確認。全スキルの実行検証ではない。自動レビューだけで支援技術の動作やWCAG適合を保証しない。
+- ライセンス：MIT。固定コミットのLICENSEを確認。
+
+導入例（原典の記載を紹介。ここでは実行していません）：
+
+```text
+npx ui-skills get baseline-ui
+```
+
+公式READMEの取得コマンド。CLIの実装上、Markdownを標準出力へ表示するもので、自動インストールではない。選んだskills/<名前>/の内容をエージェントの対応するスキル配置先へ保存して使う。
+
+依頼文のたたき台（本ガイドの独自文）：
+
+> UI Skillsのfixing-accessibilityを使って【対象画面】を確認してください。入力の名前とエラーの関連付け、Tab移動、見えるフォーカス、ダイアログを閉じた後の戻り先を点検し、既存構造を保って必要な箇所を修正してください。コードの確認とブラウザで実際に試した結果を分けて報告してください。
+
+[リポジトリ](https://github.com/ibelick/ui-skills) · [確認した原典](https://github.com/ibelick/ui-skills/blob/9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5/skills/fixing-accessibility/SKILL.md) · [導入手順](https://github.com/ibelick/ui-skills/blob/9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5/README.md) · [ライセンス根拠](https://github.com/ibelick/ui-skills/blob/9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5/LICENSE)
+
+確認日 2026-10-13 / commit `9a0cb1e610e3a1a4f0f2723bf2e7680ac1b89cf5`
+
+### Bencium Controlled UX Designer
+
+**スキル / 追加調査** / 原典資料を確認
+
+配色、書体、レイアウトを人と確認しながら進めるUX設計スキル。余白や文字の尺度に加え、入力のフィードバック、エラーからの回復、段階的な情報開示を扱う。
+
+- 向いていること：方針を相談しながら進める業務画面、フォーム、既存UIの整備。
+- 必要なもの：Claude Codeと対象プロジェクト。本文は@/components/uiにある導入済みshadcn/ui v4とindex.cssのテーマを前提とする。
+- 範囲と限界：確認を挟む設計スタイルで、承認済みの変更まで毎回止める必要はない。影を使わないなど作者の造形規則も含む。アクセシビリティや業務適合の実証は別途必要。
+- ライセンス：MIT。固定コミットのLICENSEを確認。旧bencium-claude-code-design-skill URLは現在のmarketplaceへ転送される。
+
+導入例（原典の記載を紹介。ここでは実行していません）：
+
+```text
+/plugin marketplace add bencium/bencium-marketplace
+/plugin install bencium-controlled-ux-designer@bencium-marketplace
+```
+
+Claude Code内で入力する、公式READMEの個別プラグイン導入手順。shadcn/ui自体を導入するコマンドではない。
+
+依頼文のたたき台（本ガイドの独自文）：
+
+> bencium-controlled-ux-designerで【業務画面】を設計してください。利用者の仕事は【目的】です。確定済みの色・書体・コンポーネント規約はそのまま使い、未決定の重要な選択だけ比較してください。入力中、エラー、保存中、完了の状態と、失敗から回復する方法を含めて実装してください。
+
+[リポジトリ](https://github.com/bencium/bencium-marketplace) · [確認した原典](https://github.com/bencium/bencium-marketplace/blob/5de46a39b4640fa419560cd0b67e4c4b50dac802/bencium-controlled-ux-designer/skills/bencium-controlled-ux-designer/SKILL.md) · [導入手順](https://github.com/bencium/bencium-marketplace/blob/5de46a39b4640fa419560cd0b67e4c4b50dac802/README.md) · [ライセンス根拠](https://github.com/bencium/bencium-marketplace/blob/5de46a39b4640fa419560cd0b67e4c4b50dac802/LICENSE)
+
+確認日 2026-10-13 / commit `5de46a39b4640fa419560cd0b67e4c4b50dac802`
+
+### Allonsy Design System
+
+**スキル＋設計リファレンス / 追加調査** / 原典資料を確認
+
+コンポーネントの分類と命名、プロパティやイベント、デザイントークン、ARIA、国際化を整理するスキル。画面単体から再利用できる部品と規約を作りたいときに。
+
+- 向いていること：コンポーネントライブラリの設計・レビューとデザインシステムの文書化。
+- 必要なもの：SKILL.mdと同梱referencesを読めるエージェント。既存コンポーネント、命名規約、トークン定義を渡す。HTMLやWeb Componentsの例を実装先の構成に合わせて読む。
+- 範囲と限界：設計の指針と参照資料が中心。付属CLIのインストールやテストは実行していない。既存のフレームワーク規約に合わせた調整と、操作を含むブラウザ検証が必要。
+- ライセンス：MPL-2.0。固定コミットのLICENSEを確認。改変・再配布時はMPL-2.0の条件を確認する。
+
+導入例（原典の記載を紹介。ここでは実行していません）：
+
+```text
+skills/design-system/ → プロジェクトの .claude/skills/design-system/
+```
+
+確認した固定版からフォルダを手動配置する例。SKILL.mdだけでなくreferencesも含める。対応する他エージェントではそのスキル配置先を使う。既存フォルダの上書きを避けて差分を確認する。
+
+依頼文のたたき台（本ガイドの独自文）：
+
+> design-systemを使って【既存コンポーネント群】をレビューしてください。名前、責務、プロパティ、イベント、色や余白のトークン、キーボード操作、国際化の規則を整理してください。現在の実装に合わせた小さな改善案と、代表コンポーネント1つの仕様・実装例を作ってください。
+
+[リポジトリ](https://github.com/allonsy-studio/agent-skills) · [確認した原典](https://github.com/allonsy-studio/agent-skills/blob/4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c/skills/design-system/SKILL.md) · [導入手順](https://github.com/allonsy-studio/agent-skills/blob/4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c/README.md) · [ライセンス根拠](https://github.com/allonsy-studio/agent-skills/blob/4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c/LICENSE)
+
+確認日 2026-10-13 / commit `4d1f9f9ead6e1ae760c939fe7169e2f90e7b382c`
+
+### shadcn/ui Skill
+
+**公式スキル / 追加調査** / 原典資料を確認
+
+プロジェクト設定、導入済みの部品、基盤ライブラリを調べ、shadcn/uiのフォームやダイアログを組み立てる公式スキル。部品名やAPIを推測せず、CLIと原典を参照する。
+
+- 向いていること：shadcn/uiを使う管理画面、設定、フォーム、デザインシステムの実装。
+- 必要なもの：Node.jsとパッケージマネージャー、shadcn/uiのプロジェクト。components.jsonなどの設定を読む。CLIを使った部品の取得にはネットワーク接続が必要。
+- 範囲と限界：shadcn/ui向けの実装規則であり、任意のHTMLや他の部品ライブラリへそのまま適用するものではない。スキルを追加しても部品一式や完成画面が自動で入るわけではない。
+- ライセンス：MIT。リポジトリのLICENSE.mdを確認。追加のレジストリから取得する素材・コンポーネントは各条件を確認する。
+
+導入例（原典の記載を紹介。ここでは実行していません）：
+
+```text
+pnpm dlx skills add shadcn/ui
+```
+
+shadcn/ui公式ドキュメント掲載のスキル導入例。部品を追加するshadcn CLIのコマンドとは別。導入時の最新版を取得する。
+
+依頼文のたたき台（本ガイドの独自文）：
+
+> shadcnスキルを使い、このプロジェクトの設定と導入済みコンポーネントを確認してください。【設定画面】を既存の部品で組み立て、必須入力、エラー表示、キーボード操作を含めて実装してください。部品のAPIは現行ドキュメントで確認してください。
+
+[リポジトリ](https://github.com/shadcn-ui/ui) · [確認した原典](https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/skills/shadcn/SKILL.md) · [導入手順](https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/README.md) · [ライセンス根拠](https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/LICENSE.md)
+
+確認日 2026-10-13 / commit `30a58d4498f270af1c1e981a7d78a15cf5740841`
+
+### Stitch Design Skills
+
+**スキル集＋MCP連携 / 追加調査** / 原典資料を確認
+
+Google Labs Codeが公開するStitch向けスキル集。画面の生成・修正、DESIGN.mdへの設計規約の整理、実装への引き渡しを用途別に扱う。ここでは画面生成、design-md、enhance-promptの本文を確認した。
+
+- 向いていること：Stitchの画面案、既存画面からのデザイン規約抽出、複数画面の方向性の統一。
+- 必要なもの：Stitchを利用できるアカウントと、エージェント側のStitch MCP接続・認証設定。design-mdは既存のStitch画面を参照する。機能間の依存スキルも必要。
+- 範囲と限界：READMEはGoogleの公式サポート対象製品ではないと明記。MCPを用いた生成・アップロードは外部サービスで行う。各サービスの利用枠・データの送信先は別途確認する。全収録スキルの動作検証はしていない。
+- ライセンス：Apache-2.0。スキル集のLICENSEを確認。Stitchサービスの利用条件・利用枠や、入力素材の権利とは別。
+
+導入例（原典の記載を紹介。ここでは実行していません）：
+
+```text
+npx skills add google-labs-code/stitch-skills
+```
+
+READMEの選択導入例。必要なスキルを選ぶ。接続設定は別途必要で、スキル同士に依存関係がある。ここでは接続・インストール・外部生成を行っていない。
+
+依頼文のたたき台（本ガイドの独自文）：
+
+> Stitchで【画面】を設計するため、利用者、最優先の行動、表示する情報を整理してください。既存のデザインシステムがある場合は継承し、なければ先に規約をまとめてください。生成対象のプロジェクトと送信する素材を明示して進めてください。
+
+[リポジトリ](https://github.com/google-labs-code/stitch-skills) · [確認した原典](https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/generate-design/SKILL.md) · [導入手順](https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/README.md) · [ライセンス根拠](https://github.com/google-labs-code/stitch-skills/blob/0337446dadde6f8c94210444e2aa9d546126480f/LICENSE)
+
+確認日 2026-10-13 / commit `0337446dadde6f8c94210444e2aa9d546126480f`
+
 ### Motion
 
-**ライブラリ / 元投稿 #9**
+**ライブラリ / 元投稿 #9** / 原典資料を確認
 
 Webの動きを実行するJavaScript / React向けライブラリ。スキルに教わったUIアニメーションをコードで実現する土台として、両ガイドから参照する共通項目。
 
@@ -229,7 +403,7 @@ python -m http.server 8080 --bind 127.0.0.1
 
 ## 検証の意味
 
-固定コミットの原典確認と、このガイドのデータ・リンク整合・検索ロジックの検査を分けています。第三者スキルの実行成績、生成UIの品質、アクセシビリティ適合は保証していません。
+固定コミットの原典確認、4件の指針を適用した作例、このガイドのデータ・リンク整合・検索ロジック検査を分けています。作例は単一の試作であり、スキル間の優劣を比較するベンチマークではありません。アクセシビリティ適合や第三者スキルの導入動作を保証するものでもありません。
 
 ## 出典とライセンス
 
